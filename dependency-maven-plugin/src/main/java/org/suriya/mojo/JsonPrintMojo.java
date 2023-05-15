@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 public class JsonPrintMojo extends AbstractMojo {
 
     @Parameter(defaultValue = "${project}", required = true, readonly = true)
-    MavenProject project;
+    MavenProject mavenProject;
 
     public void execute() throws MojoExecutionException
     {
@@ -32,7 +32,7 @@ public class JsonPrintMojo extends AbstractMojo {
                 "runtime dependency:");
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-        Set<Artifact> artifacts = project.getArtifacts();
+        Set<Artifact> artifacts = mavenProject.getArtifacts();
         List<Dependency> dependencies = artifacts.stream().map(streamedArtifact -> {
             Artifact artifact = ((Artifact)streamedArtifact);
             Dependency dependency = new Dependency();

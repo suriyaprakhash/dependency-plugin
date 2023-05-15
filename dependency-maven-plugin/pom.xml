@@ -4,7 +4,7 @@
 
   <groupId>org.suriya</groupId>
   <artifactId>dependency-maven-plugin</artifactId>
-  <version>0.0.6-SNAPSHOT</version>
+  <version>0.0.8-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>dependency-maven-plugin</name>
@@ -54,7 +54,6 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-
 
 <!--    <dependency>-->
 <!--      <groupId>org.apache.maven.shared</groupId>-->

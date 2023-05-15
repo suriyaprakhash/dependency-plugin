@@ -27,6 +27,10 @@ In the application **pom.xml** file add the following **plugin** in the *build* 
 ### Configuration
 
 |-|-|
+|Name|Description|Default
+|fileName|Name of the file|
+|filePath|Path to which the file needs to exported to|
+|beautify||
 
 
 Run the plugin using,

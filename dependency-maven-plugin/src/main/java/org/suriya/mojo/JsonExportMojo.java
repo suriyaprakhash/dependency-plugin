@@ -27,9 +27,9 @@ import java.util.stream.Collectors;
 public class JsonExportMojo extends AbstractMojo {
 
     @Parameter(defaultValue = "${project}", required = true, readonly = true)
-    MavenProject project;
+    MavenProject mavenProject;
 
-    @Parameter(property = "fileName", defaultValue = "dependency" )
+    @Parameter(property = "fileName", defaultValue = "dependency")
     private String fileName;
 
     @Parameter(property = "filePath" )
@@ -56,11 +56,11 @@ public class JsonExportMojo extends AbstractMojo {
 //        });
 //
 
-        project.getArtifacts().stream().forEach(artifact -> {
+        mavenProject.getArtifacts().stream().forEach(artifact -> {
             getLog().info( "artifact : " + ((Artifact)artifact).toString());
         });
 
-        Set<Artifact> artifacts = project.getArtifacts();
+        Set<Artifact> artifacts = mavenProject.getArtifacts();
         List<Dependency> dependencies = artifacts.stream().map(streamedArtifact -> {
             Dependency dependency = new Dependency();
             Artifact artifact = ((Artifact)streamedArtifact);
