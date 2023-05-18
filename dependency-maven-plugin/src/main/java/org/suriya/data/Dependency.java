@@ -2,8 +2,10 @@ package org.suriya.data;
 
 import java.util.Objects;
 
+/**
+ *
+ */
 public class Dependency {
-
     public String groupId;
 
     public String artifactId;
