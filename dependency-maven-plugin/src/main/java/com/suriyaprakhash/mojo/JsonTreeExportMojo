@@ -11,7 +11,7 @@
 //import org.apache.maven.plugins.annotations.Parameter;
 //import org.apache.maven.plugins.annotations.ResolutionScope;
 //import org.apache.maven.project.MavenProject;
-//import org.suriya.data.Dependency;
+//import data.com.suriyaprakhash.Dependency;
 //
 //import java.io.IOException;
 //import java.util.List;

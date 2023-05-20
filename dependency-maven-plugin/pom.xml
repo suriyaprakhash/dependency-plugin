@@ -1,35 +1,42 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.suriya</groupId>
+  <groupId>com.suriyaprakhash</groupId>
   <artifactId>dependency-maven-plugin</artifactId>
-  <version>0.0.11-SNAPSHOT</version>
+  <version>0.0.21</version>
   <packaging>maven-plugin</packaging>
+<!--  <packaging>jar</packaging>-->
 
   <name>dependency-maven-plugin</name>
   <url>https://github.com/suriyaprakhash/dependency-plugin</url>
-  <description>This plugin has options to export dependency as a json file</description>
+  <description>This plugin has options to export dependency as a json file. Check here for more info https://github.com/suriyaprakhash/dependency-plugin/tree/main/dependency-maven-plugin#readme</description>
+
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Suriya Prakhash Deenadayalan</name>
+      <email>suriyaprakhash@gmail.com</email>
+      <organizationUrl>https://www.suriyaprakhash.com</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://github.com/suriyaprakhash/dependency-plugin.git</connection>
+    <developerConnection>scm:git:ssh://github.com:suriyaprakhash/dependency-plugin.git</developerConnection>
+    <url>https://github.com/suriyaprakhash/dependency-plugin/tree/main</url>
+  </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
-
-  <developers>
-    <developer>
-      <name>Suriya Prakhash Deenadayalan</name>
-      <email>suriyaprakhash@gmail.com</email>
-    </developer>
-  </developers>
-
-
-  <scm>
-    <connection>scm:git:git@github.com:suriyaprakhash/dependency-plugin.git</connection>
-    <developerConnection>scm:git:ssh://github.com:suriyaprakhash/dependency-plugin.git</developerConnection>
-    <url>https://github.com/suriyaprakhash/dependency-plugin/tree/main</url>
-  </scm>
 
   <dependencies>
 
@@ -80,14 +87,24 @@
   <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
-      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+      <url>https://central.sonatype.com/content/repositories/snapshots/</url>
     </snapshotRepository>
     <repository>
       <id>ossrh</id>
-      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <url>https://central.sonatype.com/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
 
+<!--  <distributionManagement>-->
+<!--    <snapshotRepository>-->
+<!--      <id>ossrh</id>-->
+<!--      <url>https://central.sonatype.com</url>-->
+<!--    </snapshotRepository>-->
+<!--    <repository>-->
+<!--      <id>ossrh</id>-->
+<!--      <url>https://central.sonatype.com</url>-->
+<!--    </repository>-->
+<!--  </distributionManagement>-->
 
   <build>
     <plugins>
@@ -128,11 +145,23 @@
         </executions>
       </plugin>
 
+<!--      <plugin>-->
+<!--        <groupId>org.sonatype.plugins</groupId>-->
+<!--        <artifactId>nexus-staging-maven-plugin</artifactId>-->
+<!--        <version>1.6.12</version>-->
+<!--        <extensions>true</extensions>-->
+<!--        <configuration>-->
+<!--          <serverId>ossrh</serverId>-->
+<!--          <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>-->
+<!--          <autoReleaseAfterClose>true</autoReleaseAfterClose>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+
+<!--        required for signing artifact-->
       <plugin>
-        <!-- required for signing artifact -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>1.5</version>
         <executions>
           <execution>
             <id>sign-artifacts</id>
@@ -140,14 +169,6 @@
             <goals>
               <goal>sign</goal>
             </goals>
-<!--            <configuration>-->
-<!--              &lt;!&ndash; Prevent gpg from using pinentry programs. Fixes: gpg: signing-->
-<!--                  failed: Inappropriate ioctl for device &ndash;&gt;-->
-<!--              <gpgArguments>-->
-<!--                <arg>&#45;&#45;pinentry-mode</arg>-->
-<!--                <arg>loopback</arg>-->
-<!--              </gpgArguments>-->
-<!--            </configuration>-->
           </execution>
         </executions>
       </plugin>

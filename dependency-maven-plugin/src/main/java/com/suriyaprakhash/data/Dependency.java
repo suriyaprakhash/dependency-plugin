@@ -1,4 +1,4 @@
-package org.suriya.data;
+package com.suriyaprakhash.data;
 
 import java.util.Objects;
 
